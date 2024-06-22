@@ -1,1 +1,0 @@
-node @commitlint/cli/lib/cli.js --edit $1
