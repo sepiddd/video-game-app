@@ -1,11 +1,8 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { PropsWithChildren } from "react";
+import BaseLayout from "./layouts/BaseLayout";
 
-function App() {
-  return (
-    <ChakraProvider>
-      <>this is app test</>
-    </ChakraProvider>
-  );
+function App({ children }: PropsWithChildren) {
+  return <BaseLayout>{children}</BaseLayout>;
 }
 
 export default App;
