@@ -7,9 +7,9 @@ class HttpService {
     this.endpoint = endpoint;
   }
 
-  getAll<T>() {
+  getAll() {
     const controller = new AbortController();
-    const request = apiClient.get<T[]>(this.endpoint, {
+    const request = apiClient.get(this.endpoint, {
       signal: controller.signal,
     });
 
