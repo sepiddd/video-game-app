@@ -14,7 +14,7 @@ const BaseLayout = () => {
         <NavigationBar />
       </GridItem>
       <Show above="lg">
-        <GridItem bg={"deeppink"} area="aside">
+        <GridItem area="aside" width="250px" padding="20px">
           Aside
         </GridItem>
       </Show>

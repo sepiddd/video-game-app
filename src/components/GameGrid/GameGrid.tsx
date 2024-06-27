@@ -1,5 +1,6 @@
-import { Image, Progress, Text } from "@chakra-ui/react";
+import { Progress, SimpleGrid, Text } from "@chakra-ui/react";
 import useGames, { Game } from "../../hooks/useGames";
+import GameCard from "../GameCard";
 
 const GameGrid = () => {
   const { error, games, isLoading } = useGames();
@@ -8,14 +9,19 @@ const GameGrid = () => {
   return (
     <>
       {error && <Text>{error}</Text>}
-      <ul>
+      <SimpleGrid
+        columns={{
+          sm: 1,
+          md: 2,
+          lg: 3,
+        }}
+        padding="40px"
+        spacing={10}
+      >
         {games.map((game: Game) => (
-          <li key={game.id}>
-            {game.name}
-            <Image src={game.background_image} width="50px" height="50px" />
-          </li>
+          <GameCard game={game} key={game.id} />
         ))}
-      </ul>
+      </SimpleGrid>
     </>
   );
 };
