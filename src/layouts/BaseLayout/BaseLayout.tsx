@@ -1,8 +1,8 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
-import { PropsWithChildren } from "react";
 import NavigationBar from "../../components/NavigationBar";
+import GameGrid from "../../components/GameGrid";
 
-const BaseLayout = ({ children }: PropsWithChildren) => {
+const BaseLayout = () => {
   return (
     <Grid
       templateAreas={{
@@ -18,9 +18,8 @@ const BaseLayout = ({ children }: PropsWithChildren) => {
           Aside
         </GridItem>
       </Show>
-      <GridItem bg={"skyblue"} area="main">
-        {children}
-        test
+      <GridItem area="main">
+        <GameGrid />
       </GridItem>
     </Grid>
   );
