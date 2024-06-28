@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { AxiosError, CanceledError } from "axios";
 import { Game } from "./useGames";
+import useData from "./useData";
 
 export interface Genre {
   games_count: number;
@@ -12,32 +10,6 @@ export interface Genre {
   image_background: string;
 }
 
-interface FetchGenreResponse {
-  count: number;
-  next?: string;
-  previous?: string;
-  results: Genre[];
-}
-
-const useGenres = () => {
-  const [genres, setGenres] = useState<Genre[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    apiClient
-      .get<FetchGenreResponse>("/genres")
-      .then((res) => setGenres(res.data.results))
-      .catch((err: AxiosError) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-      });
-
-    return () => controller.abort();
-  }, []);
-
-  return { error, genres, setGenres };
-};
+const useGenres = () => useData<Genre>("/genres");
 
 export default useGenres;

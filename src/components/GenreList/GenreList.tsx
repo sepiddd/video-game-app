@@ -1,7 +1,7 @@
 import useGenres, { Genre } from "../../hooks/useGenres";
 
 const GenreList = () => {
-  const { genres } = useGenres();
+  const { data: genres } = useGenres();
 
   return (
     <div>
