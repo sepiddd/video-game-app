@@ -1,27 +1,30 @@
-import { Progress, SimpleGrid, Text } from "@chakra-ui/react";
+import { Grid, Text } from "@chakra-ui/react";
 import useGames, { Game } from "../../hooks/useGames";
 import GameCard from "../GameCard";
+import GameCardSkeleton from "../GameCardSkeleton";
 
 const GameGrid = () => {
   const { error, games, isLoading } = useGames();
 
-  if (isLoading) return <Progress width="100%" size="xs" isIndeterminate />;
+  const skeletons = [1, 2, 3, 4, 5, 6];
+
   return (
     <>
       {error && <Text>{error}</Text>}
-      <SimpleGrid
-        columns={{
-          sm: 1,
-          md: 2,
-          lg: 3,
+      <Grid
+        templateColumns={{
+          sm: `repeat(1, 1fr)`,
+          md: `repeat(2, 1fr)`,
+          lg: `repeat(3, 1fr)`,
         }}
         padding="40px"
-        spacing={10}
+        gap={10}
       >
+        {isLoading && skeletons.map((item) => <GameCardSkeleton key={item} />)}
         {games.map((game: Game) => (
           <GameCard game={game} key={game.id} />
         ))}
-      </SimpleGrid>
+      </Grid>
     </>
   );
 };

@@ -10,15 +10,15 @@ const BaseLayout = () => {
         lg: `"nav nav" "aside main"`,
       }}
     >
-      <GridItem area="nav">
+      <GridItem area="nav" colSpan={4}>
         <NavigationBar />
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside" width="250px" padding="20px">
+        <GridItem minW="250px" colSpan={1} area="aside" padding="20px">
           Aside
         </GridItem>
       </Show>
-      <GridItem area="main">
+      <GridItem colSpan={3} area="main">
         <GameGrid />
       </GridItem>
     </Grid>
