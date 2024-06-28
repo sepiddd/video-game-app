@@ -20,10 +20,9 @@ const GameGrid = () => {
         padding="40px"
         gap={10}
       >
-        {isLoading && skeletons.map((item) => <GameCardSkeleton key={item} />)}
-        {games.map((game: Game) => (
-          <GameCard game={game} key={game.id} />
-        ))}
+        {isLoading
+          ? skeletons.map((item) => <GameCardSkeleton key={item} />)
+          : games.map((game: Game) => <GameCard game={game} key={game.id} />)}
       </Grid>
     </>
   );
