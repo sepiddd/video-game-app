@@ -10,16 +10,17 @@ const BaseLayout = () => {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
+      templateColumns={{ base: "1fr", lg: "250px 1fr" }}
     >
-      <GridItem area="nav" colSpan={4}>
+      <GridItem area="nav">
         <NavigationBar />
       </GridItem>
       <Show above="lg">
-        <GridItem minW="250px" colSpan={1} area="aside" padding="20px">
+        <GridItem area="aside" padding="20px">
           <GenreList />
         </GridItem>
       </Show>
-      <GridItem colSpan={3} area="main">
+      <GridItem area="main">
         <GameGrid />
       </GridItem>
     </Grid>
