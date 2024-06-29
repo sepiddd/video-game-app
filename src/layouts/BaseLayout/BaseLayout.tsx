@@ -3,6 +3,7 @@ import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavigationBar from "../../components/NavigationBar";
 import GameGrid from "../../components/GameGrid";
 import GenreList from "../../components/GenreList";
+import PlatformSelect from "../../components/PlatformSelect";
 
 const BaseLayout = () => {
   const [selectedGenre, setSelectedGenre] = useState<string | undefined>(
@@ -27,7 +28,8 @@ const BaseLayout = () => {
           />
         </GridItem>
       </Show>
-      <GridItem area="main">
+      <GridItem area="main" padding="30px">
+        <PlatformSelect />
         <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>

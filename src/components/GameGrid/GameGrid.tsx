@@ -21,7 +21,6 @@ const GameGrid = ({ selectedGenre }: Props) => {
           md: `repeat(2, 1fr)`,
           lg: `repeat(3, 1fr)`,
         }}
-        padding="40px"
         gap={10}
       >
         {isLoading
