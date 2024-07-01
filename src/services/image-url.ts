@@ -3,6 +3,7 @@ const getCropedImageUrl = (
   width: number,
   height: number
 ): string => {
+  if (!url) return "";
   const target = "media/";
   const index = url.indexOf(target) + target.length;
 
