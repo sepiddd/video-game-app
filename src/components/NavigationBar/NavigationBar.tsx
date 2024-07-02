@@ -9,7 +9,7 @@ export interface SearchInputProps {
 
 const NavigationBar = (props: SearchInputProps) => {
   return (
-    <HStack padding="10px" gap={{ md: 20 }}>
+    <HStack padding="20px" gap={{ md: "20px" }}>
       <Image src={logo} alt="Logo" boxSize="60px" />
       <SearchInput {...props} />
       <ThemeModeSwitch />

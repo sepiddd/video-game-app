@@ -14,6 +14,7 @@ const GameCard = ({ game }: Props) => {
       <Image
         src={getCropedImageUrl(game.background_image, 600, 400)}
         alt={game.name}
+        objectFit="cover"
       />
       <CardBody>
         <Heading fontSize="xl" variant="h4">
