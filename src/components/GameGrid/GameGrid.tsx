@@ -30,22 +30,21 @@ const GameGrid = ({
 
   const skeletons = [1, 2, 3, 4, 5, 6];
 
+  if (error) return <Text>{error}</Text>;
+
   return (
-    <>
-      {error && <Text>{error}</Text>}
-      <Grid
-        templateColumns={{
-          sm: `repeat(1, 1fr)`,
-          md: `repeat(2, 1fr)`,
-          lg: `repeat(3, 1fr)`,
-        }}
-        gap={10}
-      >
-        {isLoading
-          ? skeletons.map((item) => <GameCardSkeleton key={item} />)
-          : games?.map((game: Game) => <GameCard game={game} key={game.id} />)}
-      </Grid>
-    </>
+    <Grid
+      templateColumns={{
+        sm: `repeat(1, 1fr)`,
+        md: `repeat(2, 1fr)`,
+        lg: `repeat(3, 1fr)`,
+      }}
+      gap={10}
+    >
+      {isLoading
+        ? skeletons.map((item) => <GameCardSkeleton key={item} />)
+        : games?.map((game: Game) => <GameCard game={game} key={game.id} />)}
+    </Grid>
   );
 };
 
