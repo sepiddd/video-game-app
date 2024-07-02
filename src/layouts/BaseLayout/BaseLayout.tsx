@@ -18,7 +18,11 @@ const BaseLayout = () => {
       templateColumns={{ base: "1fr", lg: "250px 1fr" }}
     >
       <GridItem area="nav">
-        <NavigationBar />
+        <NavigationBar
+          onSearchItem={(value) =>
+            setGameQuery({ ...gameQuery, searchText: value })
+          }
+        />
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" padding="20px">
@@ -44,6 +48,7 @@ const BaseLayout = () => {
           />
         </HStack>
         <GameGrid
+          searchText={gameQuery.searchText}
           selectedGenre={gameQuery.genre}
           selectedPlatform={gameQuery.platform}
           sortOrder={gameQuery.sortOrder}

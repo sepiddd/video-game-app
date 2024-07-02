@@ -8,14 +8,25 @@ interface Props {
   selectedGenre: Genre | null;
   selectedPlatform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
-const GameGrid = ({ selectedGenre, selectedPlatform, sortOrder }: Props) => {
+const GameGrid = ({
+  selectedGenre,
+  selectedPlatform,
+  sortOrder,
+  searchText,
+}: Props) => {
   const {
     error,
     data: games,
     isLoading,
-  } = useGames({ genre: selectedGenre, platform: selectedPlatform, sortOrder });
+  } = useGames({
+    genre: selectedGenre,
+    platform: selectedPlatform,
+    sortOrder,
+    searchText,
+  });
 
   const skeletons = [1, 2, 3, 4, 5, 6];
 
@@ -32,7 +43,7 @@ const GameGrid = ({ selectedGenre, selectedPlatform, sortOrder }: Props) => {
       >
         {isLoading
           ? skeletons.map((item) => <GameCardSkeleton key={item} />)
-          : games.map((game: Game) => <GameCard game={game} key={game.id} />)}
+          : games?.map((game: Game) => <GameCard game={game} key={game.id} />)}
       </Grid>
     </>
   );
