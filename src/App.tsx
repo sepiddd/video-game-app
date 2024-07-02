@@ -1,8 +1,7 @@
-import { PropsWithChildren } from "react";
 import BaseLayout from "./layouts/BaseLayout";
 
-function App({ children }: PropsWithChildren) {
-  return <BaseLayout>{children}</BaseLayout>;
+function App() {
+  return <BaseLayout />;
 }
 
 export default App;
