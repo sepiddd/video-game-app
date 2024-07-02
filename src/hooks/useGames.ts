@@ -11,12 +11,13 @@ export interface Game {
   id: number;
   name: string;
   slug: string;
-  image: string;
-  background_image: string;
-  games_count: number;
-  parent_platforms: { platform: Platform }[];
-  metacritic: number;
-  rating_top: number;
+  added: number;
+  image?: string;
+  background_image?: string;
+  games_count?: number;
+  parent_platforms?: { platform: Platform }[];
+  metacritic?: number;
+  rating_top?: number;
 }
 
 export interface GameQuery {

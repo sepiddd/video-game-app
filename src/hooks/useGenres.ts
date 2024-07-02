@@ -1,5 +1,5 @@
 import { Game } from "./useGames";
-import useData from "./useData";
+import genres from "../data/genres";
 
 export interface Genre {
   games_count: number;
@@ -10,6 +10,10 @@ export interface Genre {
   image_background: string;
 }
 
-const useGenres = () => useData<Genre>("/genres");
+const useGenres = () => ({
+  data: genres,
+  error: null,
+  isLoading: false,
+});
 
 export default useGenres;
