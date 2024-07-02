@@ -16,6 +16,7 @@ export interface Game {
   games_count: number;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  rating_top: number;
 }
 
 export interface GameQuery {
